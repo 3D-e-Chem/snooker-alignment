@@ -1,0 +1,11 @@
+#files
+human_alignment <path to human multiple sequence alignment>
+
+#cut_off values
+cut_off 0.3886915174561148      0.31977161457291131     0.2802039396134236      0.42766898294377748     0.31602890833016356     0.35384213192163788   0.3130372850167108
+
+#       allowed TM's in a sequence which are lower than cut-off values
+allowed_low_TMs	4
+
+# Calculate cut-off values
+calc_treshold False

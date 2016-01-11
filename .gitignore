@@ -1,0 +1,7 @@
+*.pyc
+.coverage
+env
+
+coverage.xml
+nosetests.xml
+cover/

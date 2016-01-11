@@ -1,0 +1,10 @@
+language: python
+install:
+  - pip install -r requirements.txt
+script:
+  - nosetests --with-xunit --cover-xml --with-coverage --cover-html --cover-branches --cover-package=snooker --cover-package=alignment scripts
+after_script:
+  - pip install scrutinizer-ocular
+  - ocular
+sudo: false
+cache: pip
