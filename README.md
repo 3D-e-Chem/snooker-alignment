@@ -1,6 +1,9 @@
-This directory contains scripts and config file to make an alignment from a bunch of sequences
+[![Build Status](https://travis-ci.org/3D-e-Chem/snooker-alignment.svg)](https://travis-ci.org/3D-e-Chem/snooker-alignment)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/eebbe8d8006748e694e6a1668dcad33a)](https://www.codacy.com/app/sverhoeven/snooker-alignment)
 
-See snooker_align.vsd for workflow
+Scripts and config file to make an sequence alignment from a bunch of GPCR protein sequences
+
+See [snooker_align.vsd](snooker_align.vsd) for workflow.
 
 The original alignment script was made for https://dx.doi.org/10.1186/1471-2105-12-332
 

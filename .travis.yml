@@ -4,7 +4,7 @@ install:
 script:
   - nosetests --with-xunit --cover-xml --with-coverage --cover-html --cover-branches --cover-package=snooker --cover-package=alignment scripts
 after_script:
-  - pip install scrutinizer-ocular
-  - ocular
+  - pip install codacy-coveragecodacy-coverage
+  - python-codacy-coverage -r coverage.xml
 sudo: false
 cache: pip
