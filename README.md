@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/3D-e-Chem/snooker-alignment.svg)](https://travis-ci.org/3D-e-Chem/snooker-alignment)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/eebbe8d8006748e694e6a1668dcad33a)](https://www.codacy.com/app/sverhoeven/snooker-alignment)
+[![Codacy Badge](https://api.codacy.com/project/badge/coverage/eebbe8d8006748e694e6a1668dcad33a)](https://www.codacy.com/app/sverhoeven/snooker-alignment)
 
 Scripts and config file to make an sequence alignment from a bunch of GPCR protein sequences
 
