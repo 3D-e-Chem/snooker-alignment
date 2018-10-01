@@ -3,23 +3,24 @@ Run in g/ directory:
 1. See gpcrdb_gapped_tm_numbering.csv
 
 3 + 4
+```bash
 python ../scripts/gpcrdb_spreadsheet_filter.py -n gpcrdb_gapped_tm_numbering.csv gpcrdb_human_swissprot_tm_aligment.csv > gpcrdb_human_swissprot.fa
-
+```
 5
+```bash
 export BLASTDB=../ensembl
 # swissprot
-blastp -db uniprot_sprot -query gpcrdb_human_swissprot.fa -out gpcrlike_swissprot.idlist -evalue 10 -outfmt '6 sseqid' -num_threads 4 -max_target_seqs 1000
+blastp -db uniprot_sprot -query gpcrdb_human_swissprot.fa -out gpcrlike_swissprot.idlist -evalue 10 -outfmt '6 sseqid' -num_threads 4 -num_alignments 1000
 sort -u gpcrlike_swissprot.idlist > gpcrlike_swissprot.uniq.idlist
 blastdbcmd -db uniprot_sprot -entry_batch gpcrlike_swissprot.uniq.idlist -outfmt '>%i taxid=%T;organism=%S;source=swissprot;source_version=2015_08\n%s' | grep -v taxid=0 | perl -pe 's/^>.*\|.*\|(.*?) />$1 /;s/\xFF/*/g;s/\\n/\n/' > gpcrlike_swissprot.fa
 
-
 # trembl
-blastp -db uniprot_trembl -query gpcrdb_human_swissprot.fa -out gpcrlike_trembl.idlist -evalue 10 -outfmt '6 sseqid' -num_threads 4 -max_target_seqs 1000
+blastp -db uniprot_trembl -query gpcrdb_human_swissprot.fa -out gpcrlike_trembl.idlist -evalue 10 -outfmt '6 sseqid' -num_threads 4 -num_alignments 1000
 sort -u gpcrlike_trembl.idlist > gpcrlike_trembl.uniq.idlist
 blastdbcmd -db uniprot_trembl -entry_batch gpcrlike_trembl.uniq.idlist -outfmt '>%i taxid=%T;organism=%S;source=trembl;source_version=2015_08\n%s' | grep -v taxid=0 | perl -pe 's/^>.*\|.*\|(.*?) />$1 /;s/\xFF/*/g;s/\\n/\n/' > gpcrlike_trembl.fa
 
 # ensembl
-blastp -db ensembl -query gpcrdb_human_swissprot.fa -out gpcrlike_ensembl.idlist -evalue 10 -outfmt '6 sseqid' -num_threads 4 -max_target_seqs 1000
+blastp -db ensembl -query gpcrdb_human_swissprot.fa -out gpcrlike_ensembl.idlist -evalue 10 -outfmt '6 sseqid' -num_threads 4 -num_alignments 1000
 sort -u gpcrlike_ensembl.idlist > gpcrlike_ensembl.uniq.idlist
 # replace xFF with *
 blastdbcmd -db ensembl -entry_batch gpcrlike_ensembl.uniq.idlist -outfmt '>%a taxid=%T;organism=%S;source=ensembl;source_version=81\n%s' | perl -pe 's/\xFF/*/g;s/\\n/\n/' > gpcrlike_ensembl.fa
@@ -58,3 +59,4 @@ diff  gpcrdb_human_swissprot2.ids ali.fa.ids | grep '<' |wc -l
 # Alignment looses most human seed seqs
 
 # hypotheses seqs with gaps inside tms where dropped because they have lower scores
+```
